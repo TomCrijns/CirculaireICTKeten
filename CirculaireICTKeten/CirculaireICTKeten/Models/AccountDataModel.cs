@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CirculaireICTKeten.Models
 {
-    public partial class AccountDatum
+    public partial class AccountDataModel
     {
         public int Id { get; set; }
         public int? ProfileId { get; set; }
@@ -14,6 +14,6 @@ namespace CirculaireICTKeten.Models
         public bool? Blocked { get; set; }
         public DateTime? DateBlocked { get; set; }
 
-        public virtual ProfileDatum Profile { get; set; }
+        public virtual ProfileDataModel Profile { get; set; }
     }
 }

@@ -48,8 +48,8 @@ namespace CirculaireICTKeten.Controllers
         // GET: ProfileDatums/Create
         public IActionResult Create()
         {
-            ViewData["AccountType"] = new SelectList(_context.AccountTypeLts, "Id", "Id");
-            ViewData["Ledenpas"] = new SelectList(_context.LedenpasLts, "Id", "Id");
+            ViewData["AccountType"] = new SelectList(_context.AccountTypeLt, "Id", "Id");
+            ViewData["Ledenpas"] = new SelectList(_context.LedenpasLt, "Id", "Id");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace CirculaireICTKeten.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Email,Voornaam,Achternaam,Balans,AccountType,Ledenpas,Straat,Huisnummer,Woonplaats,Postcode,DateCreated,Geboortedatum")] ProfileDatum profileDatum)
+        public async Task<IActionResult> Create([Bind("Id,Email,Voornaam,Achternaam,Balans,AccountType,Ledenpas,Straat,Huisnummer,Woonplaats,Postcode,DateCreated,Geboortedatum")] ProfileDataModel profileDatum)
         {
             if (ModelState.IsValid)
             {
@@ -66,8 +66,8 @@ namespace CirculaireICTKeten.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AccountType"] = new SelectList(_context.AccountTypeLts, "Id", "Id", profileDatum.AccountType);
-            ViewData["Ledenpas"] = new SelectList(_context.LedenpasLts, "Id", "Id", profileDatum.Ledenpas);
+            ViewData["AccountType"] = new SelectList(_context.AccountTypeLt, "Id", "Id", profileDatum.AccountType);
+            ViewData["Ledenpas"] = new SelectList(_context.LedenpasLt, "Id", "Id", profileDatum.Ledenpas);
             return View(profileDatum);
         }
 
@@ -84,8 +84,8 @@ namespace CirculaireICTKeten.Controllers
             {
                 return NotFound();
             }
-            ViewData["AccountType"] = new SelectList(_context.AccountTypeLts, "Id", "Id", profileDatum.AccountType);
-            ViewData["Ledenpas"] = new SelectList(_context.LedenpasLts, "Id", "Id", profileDatum.Ledenpas);
+            ViewData["AccountType"] = new SelectList(_context.AccountTypeLt, "Id", "Id", profileDatum.AccountType);
+            ViewData["Ledenpas"] = new SelectList(_context.LedenpasLt, "Id", "Id", profileDatum.Ledenpas);
             return View(profileDatum);
         }
 
@@ -94,7 +94,7 @@ namespace CirculaireICTKeten.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Email,Voornaam,Achternaam,Balans,AccountType,Ledenpas,Straat,Huisnummer,Woonplaats,Postcode,DateCreated,Geboortedatum")] ProfileDatum profileDatum)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Email,Voornaam,Achternaam,Balans,AccountType,Ledenpas,Straat,Huisnummer,Woonplaats,Postcode,DateCreated,Geboortedatum")] ProfileDataModel profileDatum)
         {
             if (id != profileDatum.Id)
             {
@@ -121,8 +121,8 @@ namespace CirculaireICTKeten.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AccountType"] = new SelectList(_context.AccountTypeLts, "Id", "Id", profileDatum.AccountType);
-            ViewData["Ledenpas"] = new SelectList(_context.LedenpasLts, "Id", "Id", profileDatum.Ledenpas);
+            ViewData["AccountType"] = new SelectList(_context.AccountTypeLt, "Id", "Id", profileDatum.AccountType);
+            ViewData["Ledenpas"] = new SelectList(_context.LedenpasLt, "Id", "Id", profileDatum.Ledenpas);
             return View(profileDatum);
         }
 

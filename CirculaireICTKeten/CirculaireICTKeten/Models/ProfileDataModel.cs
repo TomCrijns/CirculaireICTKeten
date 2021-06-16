@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
 namespace CirculaireICTKeten.Models
 {
-    public partial class ProfileDatum
+    public partial class ProfileDataModel
     {
-        public ProfileDatum()
+        public ProfileDataModel()
         {
-            AccountData = new HashSet<AccountDatum>();
-            Transacties = new HashSet<Transacty>();
-        }
+            AccountData = new HashSet<AccountDataModel>();
 
+            Transacties = new HashSet<TransactieModel>();
+        }
+        [Key]
         public int Id { get; set; }
         public string Email { get; set; }
         public string Voornaam { get; set; }
@@ -27,9 +29,9 @@ namespace CirculaireICTKeten.Models
         public DateTime? DateCreated { get; set; }
         public DateTime? Geboortedatum { get; set; }
 
-        public virtual AccountTypeLt AccountTypeNavigation { get; set; }
-        public virtual LedenpasLt LedenpasNavigation { get; set; }
-        public virtual ICollection<AccountDatum> AccountData { get; set; }
-        public virtual ICollection<Transacty> Transacties { get; set; }
+        public virtual AccountTypeLtModel AccountTypeNavigation { get; set; }
+        public virtual LedenpasLtModel LedenpasNavigation { get; set; }
+        public virtual ICollection<AccountDataModel> AccountData { get; set; }
+        public virtual ICollection<TransactieModel> Transacties { get; set; }
     }
 }

@@ -17,14 +17,13 @@ namespace CirculaireICTKeten.Models
         {
         }
 
-        public virtual DbSet<AccountDatum> AccountData { get; set; }
-        public virtual DbSet<AccountTypeLt> AccountTypeLts { get; set; }
-        public virtual DbSet<ArtikelSoorten> ArtikelSoortens { get; set; }
-        public virtual DbSet<Artikelen> Artikelens { get; set; }
-        public virtual DbSet<Leden> Ledens { get; set; }
-        public virtual DbSet<LedenpasLt> LedenpasLts { get; set; }
-        public virtual DbSet<ProfileDatum> ProfileData { get; set; }
-        public virtual DbSet<Transacty> Transacties { get; set; }
+        public virtual DbSet<AccountDataModel> AccountData { get; set; }
+        public virtual DbSet<AccountTypeLtModel> AccountTypeLt { get; set; }
+        public virtual DbSet<ArtikelSoortenModel> ArtikelSoorten { get; set; }
+        public virtual DbSet<ArtikelenModel> Artikelen { get; set; }
+        public virtual DbSet<LedenpasLtModel> LedenpasLt { get; set; }
+        public virtual DbSet<ProfileDataModel> ProfileData { get; set; }
+        public virtual DbSet<TransactieModel> Transacties { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -39,7 +38,7 @@ namespace CirculaireICTKeten.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.Entity<AccountDatum>(entity =>
+            modelBuilder.Entity<AccountDataModel>(entity =>
             {
                 entity.Property(e => e.DateBlocked).HasColumnType("date");
 
@@ -49,14 +48,14 @@ namespace CirculaireICTKeten.Models
                     .HasConstraintName("FK_AccountData_ProfileData");
             });
 
-            modelBuilder.Entity<AccountTypeLt>(entity =>
+            modelBuilder.Entity<AccountTypeLtModel>(entity =>
             {
                 entity.ToTable("AccountType_LT");
 
                 entity.Property(e => e.AccountType).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<ArtikelSoorten>(entity =>
+            modelBuilder.Entity<ArtikelSoortenModel>(entity =>
             {
                 entity.HasKey(e => e.ArtikelSoortId);
 
@@ -70,7 +69,7 @@ namespace CirculaireICTKeten.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Artikelen>(entity =>
+            modelBuilder.Entity<ArtikelenModel>(entity =>
             {
                 entity.HasKey(e => e.ArtikelId);
 
@@ -95,68 +94,16 @@ namespace CirculaireICTKeten.Models
                     .HasConstraintName("FK_Artikelen_ArtikelSoorten");
             });
 
-            modelBuilder.Entity<Leden>(entity =>
-            {
-                entity.HasKey(e => e.LidId);
+            
 
-                entity.ToTable("Leden");
-
-                entity.Property(e => e.LidId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("LidID");
-
-                entity.Property(e => e.Achternaam)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Emailadres)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("EMailadres");
-
-                entity.Property(e => e.Huisnummertoevoeging)
-                    .HasMaxLength(10)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Plaats)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Postcode)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Straat)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Telefoonnummer)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Tussenvoegsels)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Voornaam)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<LedenpasLt>(entity =>
+            modelBuilder.Entity<LedenpasLtModel>(entity =>
             {
                 entity.ToTable("Ledenpas_LT");
 
                 entity.Property(e => e.Status).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<ProfileDatum>(entity =>
+            modelBuilder.Entity<ProfileDataModel>(entity =>
             {
                 entity.Property(e => e.Achternaam).HasMaxLength(50);
 
@@ -189,7 +136,7 @@ namespace CirculaireICTKeten.Models
                     .HasConstraintName("FK_ProfileData_Ledenpas_LT");
             });
 
-            modelBuilder.Entity<Transacty>(entity =>
+            modelBuilder.Entity<TransactieModel>(entity =>
             {
                 entity.HasKey(e => e.TransactieId);
 

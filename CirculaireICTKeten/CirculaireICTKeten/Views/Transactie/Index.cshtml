@@ -1,0 +1,81 @@
+﻿@model IEnumerable<CirculaireICTKeten.Models.TransactieModel>
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Transacties</h2>
+        </div>
+        @*<div class="col-6 text-right">
+                <a asp-controller="Transactie" asp-action="Create" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> &nbsp; Voeg Transactie Toe
+                </a>
+            </div>*@
+    </div>
+
+    <br /><br />
+
+    @if (Model.Count() > 0)
+    {
+        <div style="overflow: auto;">
+            <table class="table table-bordered table-striped" style="width: 100%; overflow: auto;">
+                <thead>
+                    <tr>
+                        <th>
+                            ProfielId
+                        </th>
+                        <th>
+                            Datum
+                        </th>
+                        <th>
+                            ArtikelID
+                        </th>
+                        <th>
+                            ArtikelAantal
+                        </th>
+                        <th>
+                            Serienummer
+                        </th>
+                        <th>
+                            Donatie
+                        </th>
+                        <th>
+                            Lening
+                        </th>
+                        <th>
+                            TransactieID
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td>@obj.ProfielId</td>
+                        <td>@obj.Datum</td>
+                        <td>@obj.ArtikelId</td>
+                        <td>@obj.ArtikelAantal</td>
+                        <td>@obj.Serienummer</td>
+                        <td>@obj.Donatie</td>
+                        <td>@obj.Lening</td>
+                        <td>@obj.TransactieId</td>
+                        @*<td class="text-center">*@
+                        @*<div class="w-75 btn-group" role="group">
+            <a asp-controller="Transactie" asp-route-Id="@obj.TransactieId" asp-action="Edit" class="btn btn-primary mx-2">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a asp-controller="Transactie" asp-route-Id="@obj.TransactieId" asp-action="Delete" class="btn btn-danger mx-2">
+                <i class="far fa-trash-alt"></i>
+            </a>
+        </div>*@
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+            }
+            else
+            {
+            <p> No category exists.</p>
+            }
+        </div>
