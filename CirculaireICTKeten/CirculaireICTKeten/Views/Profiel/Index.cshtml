@@ -1,0 +1,103 @@
+﻿@model IEnumerable<CirculaireICTKeten.Models.ProfileDataModel>
+
+
+<div class="container-fluid p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Profielen</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Profiel" asp-action="Create" class="btn btn-primary">
+                <i class="fas fa-plus"></i> &nbsp; nieuw profiel toe voegen
+            </a>
+        </div>
+    </div>
+
+    <br /><br />
+
+    @if (Model.Count() > 0)
+    {
+        <div style="overflow: auto;">
+            <table class="table table-bordered table-striped" style="width:100%; overflow: auto;">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Voornaam
+                        </th>
+                        <th>
+                            Achternaam
+                        </th>
+                        <th>
+                            Balans
+                        </th>
+                        <th>
+                            AccountType
+                        </th>
+                        <th>
+                            Ledenpas
+                        </th>
+                        <th>
+                            Straat
+                        </th>
+                        <th>
+                            Huisnummer
+                        </th>
+                        <th>
+                            Woonplaats
+                        </th>
+                        <th>
+                            Postcode
+                        </th>
+                        <th>
+                            DateCreated
+                        </th>
+                        <th>
+                            Geboortedatum
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var obj in Model)
+                    {
+                        <tr>
+                            <td>@obj.Id</td>
+                            <td>@obj.Email</td>
+                            <td>@obj.Voornaam</td>
+                            <td>@obj.Achternaam</td>
+                            <td>@obj.Balans</td>
+                            <td>@obj.AccountType</td>
+                            <td>@obj.Ledenpas</td>
+                            <td>@obj.Straat</td>
+                            <td>@obj.Huisnummer</td>
+                            <td>@obj.Woonplaats</td>
+                            <td>@obj.Postcode</td>
+                            <td>@obj.DateCreated</td>
+                            <td>@obj.Geboortedatum</td>
+                            <td class="text-center">
+                                <div class="w-75 btn-group" role="group">
+                                    <a asp-controller="Profiel" asp-route-Id="@obj.Id" asp-action="Edit" class="btn btn-primary mx-2">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a asp-controller="Profiel" asp-route-Id="@obj.Id" asp-action="Delete" class="btn btn-danger mx-2">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p> No category exists.</p>
+    }
+
+</div>

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
 namespace CirculaireICTKeten.Models
 {
-    public partial class Transacty
+    public partial class TransactieModel
     {
         public int ProfielId { get; set; }
         public DateTime Datum { get; set; }
@@ -14,9 +15,10 @@ namespace CirculaireICTKeten.Models
         public string Serienummer { get; set; }
         public bool Donatie { get; set; }
         public bool Lening { get; set; }
+        [Key]
         public int TransactieId { get; set; }
 
-        public virtual Artikelen Artikel { get; set; }
-        public virtual ProfileDatum Profiel { get; set; }
+        public virtual ArtikelenModel Artikel { get; set; }
+        public virtual ProfileDataModel Profiel { get; set; }
     }
 }

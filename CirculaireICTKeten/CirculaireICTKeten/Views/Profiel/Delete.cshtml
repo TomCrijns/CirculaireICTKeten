@@ -1,0 +1,155 @@
+﻿@model CirculaireICTKeten.Models.ProfileDataModel
+
+<form method="post" asp-action="DeletePost">
+    <input asp-for="Id"/>
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Delete Profiel</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Id"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Id" disabled class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Straat"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Straat" disabled class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Huisnummer"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Huisnummer" disabled class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Postcode"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Postcode" disabled class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Woonplaats"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Woonplaats" disabled class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Ledenpas"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Ledenpas" disabled class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Email"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Email" disabled class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="AccountType"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="AccountType" disabled class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Voornaam"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Voornaam" disabled class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Achternaam"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Achternaam" disabled class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Balans"></label>
+                    </div>
+                    <div class="col-8" Balans
+                        <input asp-for="Achternaam" disabled class="form-control" />
+                    </div>
+
+                </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="DateCreated"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="DateCreated" disabled class="form-control" />
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Geboortedatum"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Geboortedatum" disabled class="form-control" />
+                </div>
+
+            </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <input type="submit" class="btn btn-danger w-100" value="Delete" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @* Keep this empty *@
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@*Client side validation*@
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+

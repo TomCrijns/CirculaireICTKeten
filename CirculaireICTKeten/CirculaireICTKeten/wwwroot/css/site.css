@@ -23,6 +23,9 @@ a {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+.p-3{
+  background-color: whitesmoke;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -61,6 +64,11 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-image:url('../images/Header_ruilwinkel.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+
 }
 .footer {
   position: absolute;

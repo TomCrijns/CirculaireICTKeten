@@ -2,9 +2,35 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <UserSecretsId>d3d18543-84ee-4c02-8dbc-3e49ea923a83</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\ApplicationType\**" />
+    <Compile Remove="Views\Category\**" />
+    <Content Remove="Views\ApplicationType\**" />
+    <Content Remove="Views\Category\**" />
+    <EmbeddedResource Remove="Views\ApplicationType\**" />
+    <EmbeddedResource Remove="Views\Category\**" />
+    <None Remove="Views\ApplicationType\**" />
+    <None Remove="Views\Category\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\ApplicationTypeController.cs" />
+    <Compile Remove="Controllers\CategoryController.cs" />
+    <Compile Remove="Data\ApplicationDbContext.cs" />
+    <Compile Remove="Data\RuilwinkeldbContext.cs" />
+    <Compile Remove="Models\ApplicationType.cs" />
+    <Compile Remove="Models\Category.cs" />
+    <Compile Remove="Models\LedenModel.cs" />
+    <Compile Remove="Models\TransactiesModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.6">
       <PrivateAssets>all</PrivateAssets>
@@ -14,7 +40,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
+    <Content Update="Views\Profiel\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

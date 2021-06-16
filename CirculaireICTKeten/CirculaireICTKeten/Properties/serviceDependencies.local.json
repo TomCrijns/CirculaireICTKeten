@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "resourceId": null,
+      "type": "secrets.user",
+      "connectionId": null,
+      "secretStore": null
+    },
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/circulaireictketendbserver/databases/CirculaireICTKeten_db",
+      "type": "mssql.azure",
+      "connectionId": "DefaultConnectionString",
+      "secretStore": "LocalSecretsFile"
+    }
+  }
+}
