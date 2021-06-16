@@ -49,7 +49,7 @@ namespace CirculaireICTKetenUITESTS
         public void checkProfileCreateButton()
         {
             string buttonName = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[1]/div[2]/a")).Text;
-            Assert.IsTrue(buttonName.Contains("Nieuw profiel toevoegen"), "Title of the nieuw profiel knop is right");
+            Assert.IsTrue(buttonName.Contains("nieuw profiel toevoegen"), "Title of the nieuw profiel knop is right");
         }
 
 
