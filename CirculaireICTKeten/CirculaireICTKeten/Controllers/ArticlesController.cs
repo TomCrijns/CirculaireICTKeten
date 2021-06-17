@@ -27,7 +27,7 @@ namespace CirculaireICTKeten.Controllers
         {
             ViewData["searchString"] = searchString;
 
-            var articles = from s in _context.Artikelens
+            var articles = from s in _context.Artikelen
                            select s;
 
             if (!String.IsNullOrEmpty(searchString))

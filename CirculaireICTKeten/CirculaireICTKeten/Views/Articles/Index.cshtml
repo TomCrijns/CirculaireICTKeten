@@ -1,4 +1,4 @@
-@model IEnumerable<CirculaireICTKeten.Models.Artikelen>
+@model IEnumerable<CirculaireICTKeten.Models.ArtikelenModel>
 
 @{
     ViewData["Title"] = "Artikelen catalogus";
@@ -12,38 +12,39 @@
         <a asp-action="Index" asp-route-sortOrder="points" id="sort-point">Sorteer op punten</a>
         <form asp-action="Index" method="get">
             <div class="form-actions no-color">
-    <p>
-        Zoek op naam: <input type="text" name="SearchString" value="@ViewData["searchString"]" />
-        <input id="searchField" type="submit" value="Zoek" class="btn btn-default" />
-        @if (ViewData["searchString"] != null)
-        {
-            <a asp-action="Index">Terug naar hele lijst</a>
-        }
-    </p>
-</div>
-</form>
-</p>
-<div class="grid-container">
-    @foreach (var item in Model)
-    {
-        <div class="grid-item">
-            @{
-                <!--Check if image exists in the wwwroot/Images folder and display the image.-->
-                foreach (string filePath in ViewData["filePaths"] as String[])
-                {
-                    if (filePath.Split("/").Last() == item.ArtikelId + ".jpg")
+                <p>
+                    Zoek op naam: <input type="text" name="SearchString" value="@ViewData["searchString"]" />
+                    <input id="searchField" type="submit" value="Zoek" class="btn btn-default" />
+                    @if (ViewData["searchString"] != null)
                     {
-                        <img class="" style="max-height: 200px; max-width: 300px;" src='/Images/@(item.ArtikelId + ".jpg")' alt="Afbeelding van item" />
+                        <a asp-action="Index">Terug naar hele lijst</a>
                     }
+                </p>
+            </div>
+        </form>
+    </p>
+    <div class="grid-container">
+        @foreach (var item in Model)
+        {
+            <div class="grid-item">
+                @{
+                    <!--Check if image exists in the wwwroot/Images folder and display the image.-->
+                    foreach (string filePath in ViewData["filePaths"] as String[])
+                    {
+                        if (filePath.Split("/").Last() == item.ArtikelId + ".jpg")
+                        {
+                            <img class="" style="max-height: 200px; max-width: 300px;" src='/Images/@(item.ArtikelId + ".jpg")' alt="Afbeelding van item" />
+                        }
+                    }
+
                 }
 
-            }
-
-            <div class="item-content">
-                @Html.DisplayFor(modelItem => item.ArtikelNaam)<br />
-                Punten: @Html.DisplayFor(modelItem => item.ArtikelPunten)
+                <div class="item-content">
+                    @Html.DisplayFor(modelItem => item.ArtikelNaam)<br />
+                    Punten: @Html.DisplayFor(modelItem => item.ArtikelPunten)
+                </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
 </div>
