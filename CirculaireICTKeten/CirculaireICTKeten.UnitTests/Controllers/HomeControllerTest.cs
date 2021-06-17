@@ -17,6 +17,5 @@ namespace CirculaireICTKeten.UnitTests.Controllers
             ViewResult result = controller.Index() as ViewResult;
             Assert.IsNotNull(result);
         }
-        configuration
     }
 }
