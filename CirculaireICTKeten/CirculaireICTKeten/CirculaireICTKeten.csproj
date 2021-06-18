@@ -14,7 +14,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
+    <None Include="Views\ProfileDatums\Create.cshtml" />
+    <None Include="Views\ProfileDatums\Delete.cshtml" />
+    <None Include="Views\ProfileDatums\Details.cshtml" />
+    <None Include="Views\ProfileDatums\Edit.cshtml" />
+    <None Include="Views\ProfileDatums\Index.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
 
 </Project>

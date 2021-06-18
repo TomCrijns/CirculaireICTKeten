@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CirculaireICTKeten.UnitTests.Helpers
+namespace CirculaireICTKeten.Tests.Helpers
 {
     public static class ControllerValidationHelper
     {

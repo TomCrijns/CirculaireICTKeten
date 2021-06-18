@@ -21,8 +21,8 @@ namespace CirculaireICTKeten.Controllers
         // GET: ProfileDatums
         public async Task<IActionResult> Index()
         {
-            var circulaireICTKeten_dbContext = _context.ProfileData.Include(p => p.AccountTypeNavigation).Include(p => p.LedenpasNavigation);
-            return View(await circulaireICTKeten_dbContext.ToListAsync());
+            var dB_DevOpsContext = _context.ProfileData.Include(p => p.AccountTypeNavigation).Include(p => p.LedenpasNavigation);
+            return View(await dB_DevOpsContext.ToListAsync());
         }
 
         // GET: ProfileDatums/Details/5

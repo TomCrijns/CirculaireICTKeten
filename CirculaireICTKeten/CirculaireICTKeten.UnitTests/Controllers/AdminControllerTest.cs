@@ -1,3 +1,9 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -6,9 +12,8 @@ using CirculaireICTKeten.Controllers;
 namespace CirculaireICTKeten.Tests.Controllers
 {
     [TestClass]
-    public class HomeControllerTest
+    public class AdminControllerTest
     {
-
         private readonly ILogger<HomeController> _logger;
         /*[TestMethod]
         public void Index()
@@ -16,14 +21,6 @@ namespace CirculaireICTKeten.Tests.Controllers
             HomeController controller = new HomeController(_logger);
             ViewResult result = controller.Index() as ViewResult;
             Assert.IsNotNull(result);
-        }*/
-
-        [TestMethod]
-        public void Privacy()
-        {
-            HomeController controller = new HomeController(_logger);
-            ViewResult result = controller.Privacy() as ViewResult;
-            Assert.IsNotNull(result);
-        }
+      */  
     }
 }

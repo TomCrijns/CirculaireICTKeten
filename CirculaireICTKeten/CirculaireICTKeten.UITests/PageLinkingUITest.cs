@@ -1,4 +1,4 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
@@ -7,13 +7,13 @@ using OpenQA.Selenium.Support.UI;
 using System.IO;
 using System;
 
-namespace CirculaireICTKeten.UITests.Example
+namespace CirculaireICTKeten.UITests
 {
     [TestClass]
-    public class ExampleUITest
+    public class PageLinkingUITest
     {
         [TestMethod]
-        public void NoEmailAndPasswordFilledIn()
+        public void RegisterLink()
         {
             //Arange
             var chromeOptions = new ChromeOptions();
@@ -24,18 +24,12 @@ namespace CirculaireICTKeten.UITests.Example
                 //Act
                 driver.Navigate().GoToUrl(url);
                 driver.Manage().Window.Maximize();
-                driver.FindElement(By.ClassName("Textbox")).SendKeys("");
-                driver.FindElement(By.Id("PasswordTextBox")).SendKeys("");
-                driver.FindElement(By.ClassName("Button")).Click();
+                driver.FindElement(By.Id("RegisterLink")).Click();
                 WebDriverWait wait = new WebDriverWait(driver, new System.TimeSpan(0, 1, 0));
-                wait.Until(wt => wt.FindElement(By.Id("PasswordValidation")));
-
-                var emailValidation = driver.FindElement(By.ClassName("Validation"));
-                var passwordValidation = driver.FindElement(By.Id("PasswordValidation"));
-
+                wait.Until(wt => wt.FindElement(By.ClassName("Label")));
+                var text = driver.FindElement(By.ClassName("Label"));
                 //Assert
-                Assert.IsTrue(passwordValidation.Text.Contains("ER IS GEEN WACHTWOORD INGEVULD"));
-                Assert.IsTrue(emailValidation.Text.Contains("ER IS GEEN E-MAILADRES INGEVULD"));
+                Assert.IsTrue(text.Text.Contains("Email adres"));
             }
         }
     }
