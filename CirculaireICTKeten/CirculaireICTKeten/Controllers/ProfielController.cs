@@ -99,9 +99,9 @@ namespace CirculaireICTKeten.Controllers
         //Post - Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeletePost(int? LidId)
+        public IActionResult DeletePost(int? Id)
         {
-            var obj = _db.ProfileData.Find(LidId);
+            var obj = _db.ProfileData.Find(Id);
             if (obj == null)
             {
                 return NotFound();
