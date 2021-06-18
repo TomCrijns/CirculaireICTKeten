@@ -23,7 +23,7 @@ namespace CirculaireICTKetenUITESTS
             ChromeOptions option = new ChromeOptions();
             option.AddArguments("--headless");
             webDriver = new ChromeDriver(option);
-            webDriver.Url = "https://circulaireictketentest.azurewebsites.net/Artikelen";
+            webDriver.Url = "https://test-ruilwinkel-vaals.azurewebsites.net/Artikelen";
         }
 
         [TestMethod]
