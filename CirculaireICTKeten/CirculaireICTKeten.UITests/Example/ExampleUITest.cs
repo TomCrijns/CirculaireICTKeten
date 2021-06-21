@@ -18,7 +18,7 @@ namespace CirculaireICTKeten.UITests.Example
             //Arange
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArguments("headless");
-            string url = "https://test-CirculaireICTKetencore.azurewebsites.net/Login/Login";
+            string url = "https://test-ruilwinkelvaalscore.azurewebsites.net/Login/Login";
             using (var driver = new ChromeDriver(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory), chromeOptions))
             {
                 //Act
