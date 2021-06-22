@@ -148,12 +148,12 @@ namespace CirculaireICTKeten.Models
 
                 entity.Property(q => q.Lening)
                     .HasColumnName("Lening")
-                    .HasConversion(new BoolToZeroOneConverter<byte>())
+                    //.HasConversion(new BoolToZeroOneConverter<byte>())
                     .IsRequired();
 
                 entity.Property(q => q.Donatie)
                     .HasColumnName("Donatie")
-                    .HasConversion(new BoolToZeroOneConverter<byte>())
+                    //.HasConversion(new BoolToZeroOneConverter<byte>())
                     .IsRequired();
 
                 entity.Property(e => e.Serienummer)
@@ -184,10 +184,10 @@ namespace CirculaireICTKeten.Models
                     .HasColumnName("ArtikelID")
                     .HasMaxLength(24)
                     .IsRequired();
-                //e.Property(q => q.IsVerkoop)
-                //    .HasConversion(new BoolToZeroOneConverter<byte>())
-                //    .HasColumnName("IsVerkoop")
-                //    .IsRequired();
+                e.Property(q => q.IsVerkoop)
+                    //.HasConversion(new BoolToZeroOneConverter<byte>())
+                    .HasColumnName("IsVerkoop")
+                    .IsRequired();
                 e.Property(q => q.Punten)
                     .HasColumnName("Punten")
                     .IsRequired();
