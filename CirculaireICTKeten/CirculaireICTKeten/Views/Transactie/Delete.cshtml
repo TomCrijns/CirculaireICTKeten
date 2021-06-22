@@ -1,7 +1,7 @@
 ﻿@model CirculaireICTKeten.Models.TransactieModel
 
 <form method="post" asp-action="DeletePost">
-    <input asp-for="TransactieId" hidden/>
+    <input asp-for="TransactieID" hidden/>
     <div class="border p-3">
         <div class="form-group row">
             <h2 class="text-info pl-3">Delete Artikel</h2>
@@ -14,24 +14,6 @@
                     </div>
                     <div class="col-8">
                         <input asp-for="Datum" disabled class="form-control" />
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="ArtikelId"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="ArtikelId" disabled class="form-control" />
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="ArtikelAantal"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="ArtikelAantal" disabled class="form-control" />
                     </div>
 
                 </div>
@@ -62,15 +44,7 @@
                     </div>
 
                 </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="ArtikelId"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="ArtikelId" disabled class="form-control" />
-                    </div>
 
-                </div>
                 <div class="form-group row">
                     <div class="col-8 offset-4 row">
 
