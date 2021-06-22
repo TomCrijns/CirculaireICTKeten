@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using CirculaireICTKeten.Models;
 
 #nullable disable
 
@@ -220,5 +221,8 @@ namespace CirculaireICTKeten.Models
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public DbSet<CirculaireICTKeten.Models.Klacht> Klacht { get; set; }
+
     }
 }
