@@ -49,16 +49,12 @@ namespace CirculaireICTKetenUITESTS
         {
             string kolomNaam1 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[1]")).Text;
             string kolomNaam2 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[2]")).Text;
-            string kolomNaam3 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[3]")).Text;
-            string kolomNaam4 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[4]")).Text;
             string kolomNaam5 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[5]")).Text;
             string kolomNaam6 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[6]")).Text;
             string kolomNaam7 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[7]")).Text;
             string kolomNaam8 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[8]")).Text;
             Assert.IsTrue(kolomNaam1.Contains("ProfielId"), "ProfielId is correct");
             Assert.IsTrue(kolomNaam2.Contains("Datum"), "Datum is correct");
-            Assert.IsTrue(kolomNaam3.Contains("ArtikelID"), "ArtikelID is correct");
-            Assert.IsTrue(kolomNaam4.Contains("ArtikelAantal"), "ArtikelAantal is correct");
             Assert.IsTrue(kolomNaam5.Contains("Serienummer"), "Serienummer is correct");
             Assert.IsTrue(kolomNaam6.Contains("Donatie"), "Donatie is correct");
             Assert.IsTrue(kolomNaam7.Contains("Lening"), "Lening is correct");
