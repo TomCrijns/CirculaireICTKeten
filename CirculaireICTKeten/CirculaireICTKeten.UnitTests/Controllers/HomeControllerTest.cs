@@ -14,7 +14,7 @@ namespace CirculaireICTKeten.UnitTests.Controllers
         public void Privacy()
         {
             HomeController controller = new HomeController(_logger);
-            ViewResult result = controller.Index() as ViewResult;
+            ViewResult result = controller.Privacy() as ViewResult;
             Assert.IsNotNull(result);
         }
     }
