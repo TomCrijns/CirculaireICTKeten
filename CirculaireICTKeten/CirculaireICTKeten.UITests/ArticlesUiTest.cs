@@ -33,7 +33,7 @@ namespace CirculaireICTKeten.UITests
             chromeDriver.Navigate()
                 .GoToUrl("https://test-ruilwinkel-vaals.azurewebsites.net/Articles");
             chromeDriver.FindElement(By.Id("searchField")).SendKeys("Stoel");
-            chromeDriver.FindElement(By.ClassName("btn")).Click();
+            chromeDriver.FindElement(By.Id("searchButton")).Click();
             //WebDriverWait wait = new WebDriverWait(chromeDriver, new System.TimeSpan(0, 1, 0));
             //var text = chromeDriver.FindElement(By.ClassName("grid-container"));
             //Assert.IsTrue(text.Text.Contains("Stoel"));

@@ -14,8 +14,8 @@
         <form asp-action="Index" method="get">
             <div class="form-actions no-color">
                 <p>
-                    Zoek op naam: <input type="text" name="SearchString" value="@ViewData["searchString"]" />
-                    <input id="searchField" type="submit" value="Zoek" class="btn btn-default" />
+                    Zoek op naam: <input type="text" id="searchField" name="SearchString" value="@ViewData["searchString"]" />
+                    <input id="searchButton" type="submit" value="Zoek" class="btn btn-default" />
                     @if (ViewData["searchString"] != null)
                     {
                         <a asp-action="Index">Terug naar hele lijst</a>
