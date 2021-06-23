@@ -39,10 +39,11 @@
 
                 }
 
-                <div class="item-content">
-                    @Html.DisplayFor(modelItem => item.ArtikelNaam)<br />
-                    Punten: @Html.DisplayFor(modelItem => item.ArtikelPunten)
-                </div>
+            <div class="item-content">
+                @Html.DisplayFor(modelItem => item.ArtikelNaam)<br />
+                Punten: @Html.DisplayFor(modelItem => item.ArtikelPunten)<br />
+                Soort: @Html.DisplayFor(modelItem => item.ArtikelSoortId)
+            </div>
             </div>
         }
     </div>
