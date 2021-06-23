@@ -9,8 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CirculaireICTKeten.Models;
-
 using Microsoft.EntityFrameworkCore;
+using CirculaireICTKeten.Services.EmailService.Configuration;
+using System.Globalization;
 
 namespace CirculaireICTKeten
 {
@@ -26,9 +27,22 @@ namespace CirculaireICTKeten
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            var cultureInfo = new CultureInfo("nl-BE");
+            cultureInfo.NumberFormat.CurrencySymbol = "€";
 
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".CirculaireICTKeten.UserSession";
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.IsEssential = true;
+            });
+            services.AddControllersWithViews();
             services.AddDbContext<CirculaireICTKeten_dbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+            services.Configure<SendEmailConfiguration>(Configuration.GetSection("EmailSettings"));
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,12 +64,16 @@ namespace CirculaireICTKeten
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                     name: "twoparameters",
+                     pattern: "{controller}/{action}/{email}");
             });
         }
     }
