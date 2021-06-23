@@ -45,7 +45,8 @@ namespace CirculaireICTKeten.UITests
             chromeDriver.Navigate()
                 .GoToUrl("https://test-ruilwinkel-vaals.azurewebsites.net/Articles");
             chromeDriver.FindElement(By.Id("sort-point")).Click();
-            //Assert.AreEqual("Artikelen catalogus - B2C6_gr2", chromeDriver.Title);
+            chromeDriver.FindElement(By.Id("sort-category")).Click();
+            chromeDriver.FindElement(By.Id("sort-name")).Click();
         }
     }
 }
