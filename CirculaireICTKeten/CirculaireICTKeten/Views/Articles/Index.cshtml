@@ -8,8 +8,9 @@
     <h1>Artikelen catalogus</h1>
 
     <p>
-        <a asp-action="Index" asp-route-sortOrder="name_desc" id="sort-name">Sorteer op naam</a>
-        <a asp-action="Index" asp-route-sortOrder="points" id="sort-point">Sorteer op punten</a>
+        <a asp-action="Index" asp-route-sortOrder="name_desc" id="sort-name">Sorteer op naam</a> |
+        <a asp-action="Index" asp-route-sortOrder="points" id="sort-point">Sorteer op punten</a> |
+        <a asp-action="Index" asp-route-sortOrder="category" id="sort-category">Sorteer op categorie</a>
         <form asp-action="Index" method="get">
             <div class="form-actions no-color">
                 <p>
