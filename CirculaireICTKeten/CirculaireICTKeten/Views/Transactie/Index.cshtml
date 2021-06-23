@@ -28,12 +28,6 @@
                             Datum
                         </th>
                         <th>
-                            ArtikelID
-                        </th>
-                        <th>
-                            ArtikelAantal
-                        </th>
-                        <th>
                             Serienummer
                         </th>
                         <th>
@@ -53,18 +47,16 @@
                     <tr>
                         <td>@obj.ProfielId</td>
                         <td>@obj.Datum</td>
-                        <td>@obj.ArtikelId</td>
-                        <td>@obj.ArtikelAantal</td>
                         <td>@obj.Serienummer</td>
                         <td>@obj.Donatie</td>
                         <td>@obj.Lening</td>
-                        <td>@obj.TransactieId</td>
+                        <td>@obj.TransactieID</td>
                         @*<td class="text-center">*@
                         @*<div class="w-75 btn-group" role="group">
-            <a asp-controller="Transactie" asp-route-Id="@obj.TransactieId" asp-action="Edit" class="btn btn-primary mx-2">
+            <a asp-controller="Transactie" asp-route-Id="@obj.TransactieID" asp-action="Edit" class="btn btn-primary mx-2">
                 <i class="fas fa-edit"></i>
             </a>
-            <a asp-controller="Transactie" asp-route-Id="@obj.TransactieId" asp-action="Delete" class="btn btn-danger mx-2">
+            <a asp-controller="Transactie" asp-route-Id="@obj.TransactieID" asp-action="Delete" class="btn btn-danger mx-2">
                 <i class="far fa-trash-alt"></i>
             </a>
         </div>*@

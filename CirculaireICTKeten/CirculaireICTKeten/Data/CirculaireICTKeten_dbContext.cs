@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
@@ -24,6 +25,7 @@ namespace CirculaireICTKeten.Models
         public virtual DbSet<LedenpasLtModel> LedenpasLt { get; set; }
         public virtual DbSet<ProfileDataModel> ProfileData { get; set; }
         public virtual DbSet<TransactieModel> Transacties { get; set; }
+        public virtual DbSet<TransactieArtikelenModel> TransactieArtikelen { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -71,11 +73,11 @@ namespace CirculaireICTKeten.Models
 
             modelBuilder.Entity<ArtikelenModel>(entity =>
             {
-                entity.HasKey(e => e.ArtikelId);
-
                 entity.ToTable("Artikelen");
 
-                entity.Property(e => e.ArtikelId).HasColumnName("ArtikelID");
+                entity.HasKey(e => e.ArtikelID);
+
+                entity.Property(e => e.ArtikelID).HasColumnName("ArtikelID");
 
                 entity.Property(e => e.ArtikelNaam)
                     .HasMaxLength(50)
@@ -138,29 +140,69 @@ namespace CirculaireICTKeten.Models
 
             modelBuilder.Entity<TransactieModel>(entity =>
             {
-                entity.HasKey(e => e.TransactieId);
+                entity.HasKey(e => e.TransactieID);
 
-                entity.Property(e => e.TransactieId).HasColumnName("TransactieID");
-
-                entity.Property(e => e.ArtikelId).HasColumnName("ArtikelID");
+                entity.Property(e => e.TransactieID).HasColumnName("TransactieID");
 
                 entity.Property(e => e.Datum).HasColumnType("datetime");
+
+                entity.Property(q => q.Lening)
+                    .HasColumnName("Lening")
+                    //.HasConversion(new BoolToZeroOneConverter<byte>())
+                    .IsRequired();
+
+                entity.Property(q => q.Donatie)
+                    .HasColumnName("Donatie")
+                    //.HasConversion(new BoolToZeroOneConverter<byte>())
+                    .IsRequired();
 
                 entity.Property(e => e.Serienummer)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Artikel)
-                    .WithMany(p => p.Transacties)
-                    .HasForeignKey(d => d.ArtikelId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Transacties_Artikelen");
 
                 entity.HasOne(d => d.Profiel)
                     .WithMany(p => p.Transacties)
                     .HasForeignKey(d => d.ProfielId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Transacties_ProfileData");
+
+            });
+
+            modelBuilder.Entity<TransactieArtikelenModel>(e =>
+            {
+                
+                e.ToTable("TransactieArtikelen");
+                //e.HasKey(q => new { q.TransactieID, q.ArtikelID});
+
+
+                e.HasKey(e => e.TransactieArtikelID);
+                e.Property(q => q.TransactieID)
+                    .HasColumnName("TransactieID")
+                    .IsRequired();
+                e.Property(q => q.ArtikelID)
+                    .HasColumnName("ArtikelID")
+                    .HasMaxLength(24)
+                    .IsRequired();
+                e.Property(q => q.IsVerkoop)
+                    //.HasConversion(new BoolToZeroOneConverter<byte>())
+                    .HasColumnName("IsVerkoop")
+                    .IsRequired();
+                e.Property(q => q.Punten)
+                    .HasColumnName("Punten")
+                    .IsRequired();
+                e.Property(q => q.Aantal)
+                    .HasColumnName("Aantal")
+                    .IsRequired();
+
+
+
+                e.HasOne(q => q.Transactie)
+                    .WithMany(q => q.TransactieArtikelen)
+                    .HasForeignKey(q => q.TransactieID);
+                e.HasOne(q => q.Artikelen)
+                    .WithMany(q => q.TransactieArtikelen)
+                    .HasForeignKey(q => q.ArtikelID);
             });
 
             OnModelCreatingPartial(modelBuilder);
