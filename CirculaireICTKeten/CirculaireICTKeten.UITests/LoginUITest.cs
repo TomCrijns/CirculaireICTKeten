@@ -34,7 +34,7 @@ namespace CirculaireICTKeten.UITests
                 var text = driver.FindElement(By.TagName("h1"));
 
                 //Assert
-                Assert.IsTrue(text.Text.Contains("Admin Panel"));
+                Assert.IsTrue(text.Text.Contains("Dashboard"));
             }
         }
 
