@@ -1,0 +1,16 @@
+﻿.grid-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 18px;
+}
+
+.grid-item {
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 30px 0px #ddd
+}
+
+.articleImage {
+    max-height: 200px;
+    max-width: 300px;
+}
