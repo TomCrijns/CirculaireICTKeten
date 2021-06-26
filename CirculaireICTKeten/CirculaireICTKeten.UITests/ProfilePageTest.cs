@@ -38,7 +38,7 @@ namespace CirculaireICTKetenUITESTS
         //Check the name of the Profile Table
         public void checkTableName()
         {
-            string tablename = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[1]/div[1]/h2")).Text;
+            string tablename = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[1]/div[1]/h2")).Text;
             Assert.IsTrue(tablename.Contains("Profielen"), "Title of the profielen table is rigt");
         }
 
@@ -48,7 +48,7 @@ namespace CirculaireICTKetenUITESTS
         //Check if there is an Niew Profile button and if it contains the text "Nieuw Artikel"
         public void checkProfileCreateButton()
         {
-            string buttonName = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[1]/div[2]/a")).Text;
+            string buttonName = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[1]/div[2]/a")).Text;
             Assert.IsTrue(buttonName.Contains("nieuw profiel toevoegen"), "Title of the nieuw profiel knop is right");
         }
 
@@ -58,19 +58,19 @@ namespace CirculaireICTKetenUITESTS
         //Check if the tableheads are correct.
         public void checkTableHead()
         {
-            string kolomNaam1 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[1]")).Text;
-            string kolomNaam2 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[2]")).Text;
-            string kolomNaam3 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[3]")).Text;
-            string kolomNaam4 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[4]")).Text;
-            string kolomNaam5 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[5]")).Text;
-            string kolomNaam6 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[6]")).Text;
-            string kolomNaam7 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[7]")).Text;
-            string kolomNaam8 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[8]")).Text;
-            string kolomNaam9 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[9]")).Text;
-            string kolomNaam10 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[10]")).Text;
-            string kolomNaam11 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[11]")).Text;
-            string kolomNaam12 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[12]")).Text;
-            string kolomNaam13 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[13]")).Text;
+            string kolomNaam1 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[1]")).Text;
+            string kolomNaam2 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[2]")).Text;
+            string kolomNaam3 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[3]")).Text;
+            string kolomNaam4 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[4]")).Text;
+            string kolomNaam5 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[5]")).Text;
+            string kolomNaam6 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[6]")).Text;
+            string kolomNaam7 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[7]")).Text;
+            string kolomNaam8 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[8]")).Text;
+            string kolomNaam9 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[9]")).Text;
+            string kolomNaam10 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[10]")).Text;
+            string kolomNaam11 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[11]")).Text;
+            string kolomNaam12 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[12]")).Text;
+            string kolomNaam13 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[13]")).Text;
 
             Assert.IsTrue(kolomNaam1.Contains("Id"), "Id is correct");
             Assert.IsTrue(kolomNaam2.Contains("Email"), "Email is correct");
@@ -94,11 +94,11 @@ namespace CirculaireICTKetenUITESTS
         //Check if a row can be editted
         public void checkEditDeleteOptions()
         {
-            string row = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/tbody/tr[1]")).Text;
+            string row = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/tbody/tr[1]")).Text;
             if (!string.IsNullOrEmpty(row))
             {
-                string edit = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/tbody/tr[1]/td[14]/div/a[1]")).ToString();
-                string delete = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/tbody/tr[1]/td[14]/div/a[2]")).ToString();
+                string edit = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/tbody/tr[1]/td[14]/div/a[1]")).ToString();
+                string delete = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/tbody/tr[1]/td[14]/div/a[2]")).ToString();
                 Assert.IsNotNull(edit, "Edit button is correct");
                 Assert.IsNotNull(delete, "Delete button is correct");
             }

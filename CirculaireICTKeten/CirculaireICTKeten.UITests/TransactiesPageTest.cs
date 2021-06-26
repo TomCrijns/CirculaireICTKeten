@@ -38,7 +38,7 @@ namespace CirculaireICTKetenUITESTS
         //Check the name of the Transactie Table
         public void checkTableName()
         {
-            string tablename = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[1]/div/h2")).Text;
+            string tablename = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[1]/div/h2")).Text;
             Assert.IsTrue(tablename.Contains("Transacties"), "Title of the transacties table is rigt");
         }
 
@@ -47,12 +47,12 @@ namespace CirculaireICTKetenUITESTS
         //Check if the tableheads are correct.
         public void checkTableHead()
         {
-            string kolomNaam1 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[1]")).Text;
-            string kolomNaam2 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[2]")).Text;
-            string kolomNaam5 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[3]")).Text;
-            string kolomNaam6 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[4]")).Text;
-            string kolomNaam7 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[5]")).Text;
-            string kolomNaam8 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[6]")).Text;
+            string kolomNaam1 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[1]")).Text;
+            string kolomNaam2 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[2]")).Text;
+            string kolomNaam5 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[3]")).Text;
+            string kolomNaam6 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[4]")).Text;
+            string kolomNaam7 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[5]")).Text;
+            string kolomNaam8 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[6]")).Text;
             Assert.IsTrue(kolomNaam1.Contains("ProfielId"), "ProfielId is correct");
             Assert.IsTrue(kolomNaam2.Contains("Datum"), "Datum is correct");
             Assert.IsTrue(kolomNaam5.Contains("Serienummer"), "Serienummer is correct");
