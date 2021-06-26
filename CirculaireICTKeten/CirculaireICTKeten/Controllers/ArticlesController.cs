@@ -43,6 +43,9 @@ namespace CirculaireICTKeten.Controllers
                 case "points":
                     articles = articles.OrderBy(s => s.ArtikelPunten);
                     break;
+                case "category":
+                    articles = articles.OrderBy(s => s.ArtikelSoortId);
+                    break;
                 default:
                     articles = articles.OrderByDescending(s => s.ArtikelNaam);
                     break;

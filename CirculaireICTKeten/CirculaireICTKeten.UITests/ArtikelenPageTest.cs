@@ -39,7 +39,7 @@ namespace CirculaireICTKetenUITESTS
         //Check the name of the Artikelen Table
         public void checkTableName()
         {
-            string tablename = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[1]/div[1]/h2")).Text;
+            string tablename = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[1]/div[1]/h2")).Text;
             Assert.IsTrue(tablename.Contains("Artikelen"), "Title of the artikelen table is rigt");
         }
 
@@ -49,7 +49,7 @@ namespace CirculaireICTKetenUITESTS
         //Check if there is an Niew Artikel button and if it contains the text "Nieuw Artikel"
         public void checkArtikelCreateButton()
         {
-            string buttonName = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[1]/div[2]/a")).Text;
+            string buttonName = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[1]/div[2]/a")).Text;
             Assert.IsTrue(buttonName.Contains("Nieuw artikel toevoegen"), "Title of the nieuw artikel knop is right");
         }
 
@@ -59,13 +59,13 @@ namespace CirculaireICTKetenUITESTS
         public void createArtikel()
         {
             var rand = new Random();
-            webDriver.FindElement(By.XPath("/html/body/div/main/div/div/div[2]/a")).Click();
-            string naam = webDriver.FindElement(By.XPath("/html/body/div/main/form/div/div[2]/div[1]/div[1]/div[1]/label")).Text;
-            string id = webDriver.FindElement(By.XPath("/html/body/div/main/form/div/div[2]/div[1]/div[2]/div[1]/label")).Text;
-            string punten = webDriver.FindElement(By.XPath("/html/body/div/main/form/div/div[2]/div[1]/div[3]/div[1]/label")).Text;
-            string serienummer = webDriver.FindElement(By.XPath("/html/body/div/main/form/div/div[2]/div[1]/div[4]/div[1]/label")).Text;
-            string create = webDriver.FindElement(By.XPath("/html/body/div/main/form/div/div[2]/div[1]/div[5]/div/div[1]/input")).Text;
-            string back = webDriver.FindElement(By.XPath("/html/body/div/main/form/div/div[2]/div[1]/div[5]/div/div[2]/a")).Text;
+            webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div/div[2]/a")).Click();
+            string naam = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/form/div/div[2]/div[1]/div[1]/div[1]/label")).Text;
+            string id = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/form/div/div[2]/div[1]/div[2]/div[1]/label")).Text;
+            string punten = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/form/div/div[2]/div[1]/div[3]/div[1]/label")).Text;
+            string serienummer = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/form/div/div[2]/div[1]/div[4]/div[1]/label")).Text;
+            string create = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/form/div/div[2]/div[1]/div[5]/div/div[1]/input")).Text;
+            string back = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/form/div/div[2]/div[1]/div[5]/div/div[2]/a")).Text;
             Assert.IsTrue(naam.Contains("ArtikelNaam"));
             Assert.IsTrue(id.Contains("ArtikelSoortId"));
             Assert.IsTrue(punten.Contains("ArtikelPunten"));
@@ -95,7 +95,7 @@ namespace CirculaireICTKetenUITESTS
             inputId.SendKeys(randomId.ToString());
             inputPunten.SendKeys(randomPunten.ToString());
             inputSerienummer.SendKeys(randomSerienummer.ToString());
-            webDriver.FindElement(By.XPath("/html/body/div/main/form/div/div[2]/div[1]/div[5]/div/div[1]/input")).Click();
+            webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/form/div/div[2]/div[1]/div[5]/div/div[1]/input")).Click();
         }
 
 
@@ -104,10 +104,10 @@ namespace CirculaireICTKetenUITESTS
         //Check if the tableheads are correct.
         public void checkTableHead()
         {
-            string kolomNaam1 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[1]")).Text;
-            string kolomNaam2 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[2]")).Text;
-            string kolomNaam3 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[3]")).Text;
-            string kolomNaam4 = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/thead/tr/th[4]")).Text;
+            string kolomNaam1 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[1]")).Text;
+            string kolomNaam2 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[2]")).Text;
+            string kolomNaam3 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[3]")).Text;
+            string kolomNaam4 = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/thead/tr/th[4]")).Text;
             Assert.IsTrue(kolomNaam1.Contains("Artikel Naam"), "Artikel naam is correct");
             Assert.IsTrue(kolomNaam2.Contains("Artikel SoortId"), "Artikel soort is correct");
             Assert.IsTrue(kolomNaam3.Contains("Artikel Punten"), "Artikel punten is correct");
@@ -120,11 +120,11 @@ namespace CirculaireICTKetenUITESTS
         //Check if a row can be editted
         public void checkEditDeleteOptions()
         {
-            string row = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/tbody/tr[1]")).Text;
+            string row = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/tbody/tr[1]")).Text;
             if (!string.IsNullOrEmpty(row))
             {
-                string edit = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/tbody/tr[1]/td[5]/div/a[1]")).ToString();
-                string delete = webDriver.FindElement(By.XPath("/html/body/div/main/div/div[2]/table/tbody/tr[1]/td[5]/div/a[2]")).ToString();
+                string edit = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/tbody/tr[1]/td[5]/div/a[1]")).ToString();
+                string delete = webDriver.FindElement(By.XPath("/html/body/div[3]/div[2]/main/div/div[2]/table/tbody/tr[1]/td[5]/div/a[2]")).ToString();
                 Assert.IsNotNull(edit, "Edit button is correct");
                 Assert.IsNotNull(delete, "Delete button is correct");
             }
