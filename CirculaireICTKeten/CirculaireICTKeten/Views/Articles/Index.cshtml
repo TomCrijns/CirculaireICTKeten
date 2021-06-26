@@ -35,9 +35,9 @@
                         <!--Check if image exists in the wwwroot/Images folder and display the image.-->
                         foreach (string filePath in ViewData["filePaths"] as String[])
                         {
-                            if (filePath.Split("/").Last() == item.ArtikelId + ".jpg")
+                            if (filePath.Split("/").Last() == item.ArtikelID + ".jpg")
                             {
-                                <img class="articleImage" src='/Images/@(item.ArtikelId + ".jpg")' alt="Afbeelding van item" />
+                                <img class="articleImage" src='/Images/@(item.ArtikelID + ".jpg")' alt="Afbeelding van item" />
                             }
                         }
 
