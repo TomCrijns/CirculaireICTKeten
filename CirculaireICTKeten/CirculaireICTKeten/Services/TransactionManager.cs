@@ -23,8 +23,7 @@ namespace CirculaireICTKeten.Services
             _contextAccessor = httpContextAccessor;
             _dataContext = dataContext;
             
-            int employeeId = int.Parse(_contextAccessor.HttpContext.User.FindFirst(q => q.Type == ClaimTypes.NameIdentifier).Value);
-            _activeTransaction = new Lazy<TransactieModel>(dataContext.Transacties.Include(q=>q.Profiel).SingleOrDefault(q => q.Datum == DateTimeOffset.MinValue));
+            _activeTransaction = new Lazy<TransactieModel>(dataContext.Transacties.Include(q=>q.Profiel).SingleOrDefault(q => q.Datum == null));
         }
 
         public TransactieArtikelenModel AddProductForSellToTransaction(ArtikelenModel product, byte numberOf, int? points) => 
@@ -54,12 +53,13 @@ namespace CirculaireICTKeten.Services
 
         public TransactieModel StartTransaction(ProfileDataModel customer)
         {
-            if (_contextAccessor.HttpContext.User.Identity?.IsAuthenticated != true || !_contextAccessor.HttpContext.User.IsInRole("employee"))
-            {
-                throw new SecurityException("Trying to start transaction while not logged in or not having the right permissions");
-            }
+# warning global authentication not enabled, validating user will always succeed!
+            //if (_contextAccessor.HttpContext.User.Identity?.IsAuthenticated != true || !_contextAccessor.HttpContext.User.IsInRole("employee"))
+            //{
+            //    throw new SecurityException("Trying to start transaction while not logged in or not having the right permissions");
+            //}
 
-            if (_dataContext.Transacties.Any(q=>q.Datum == DateTimeOffset.MinValue))
+            if (_dataContext.Transacties.Any(q=>q.Datum == null))
             {
                 throw new InvalidOperationException("Cannot start transaction while there is one open");
             }

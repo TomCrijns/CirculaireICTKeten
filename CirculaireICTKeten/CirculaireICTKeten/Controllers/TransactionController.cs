@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CirculaireICTKeten.Controllers
 {
-    [Authorize(Roles = "employee")]
+    //[Authorize(Roles = "employee")]
     public class TransactionController : Controller
     {
         private readonly CirculaireICTKeten_dbContext _dataContext;

@@ -9,6 +9,8 @@ namespace CirculaireICTKeten.Models
 {
     public partial class TransactieModel
     {
+
+        public static readonly DateTime StandardDateTimeOffset = new DateTime(1980, 1, 1, 0, 0, 0);
         public TransactieModel()
         {
             TransactieArtikelen = new HashSet<TransactieArtikelenModel>();
@@ -22,7 +24,7 @@ namespace CirculaireICTKeten.Models
         private ILazyLoader LazyLoader { get; set; }
 
         public int ProfielId { get; set; }
-        public DateTime Datum { get; set; }
+        public DateTime? Datum { get; set; }
         public string Serienummer { get; set; }
         public bool Donatie { get; set; }
         public bool Lening { get; set; }

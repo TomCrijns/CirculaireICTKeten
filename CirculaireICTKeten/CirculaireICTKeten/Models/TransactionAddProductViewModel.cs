@@ -12,7 +12,7 @@ namespace CirculaireICTKeten.Models
         public IEnumerable<ArtikelenModel> Products;
         public IEnumerable<SelectListItem> GetSelectListItems()
         {
-            return Products?.Select(q => new SelectListItem(q.ArtikelNaam, q.ArtikelID.ToString())) ?? Array.Empty<SelectListItem>();
+            return Products?.Select(q => new SelectListItem(q.ArtikelNaam, q.ArtikelID.ToString())) ?? new[] { new SelectListItem("No products were found", "dwaoidwhad") };
         }
 
         [Required]
