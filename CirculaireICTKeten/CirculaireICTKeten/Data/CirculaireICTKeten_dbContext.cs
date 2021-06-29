@@ -1,7 +1,5 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
@@ -142,9 +140,12 @@ namespace CirculaireICTKeten.Models
             {
                 entity.HasKey(e => e.TransactieID);
 
-                entity.Property(e => e.TransactieID).HasColumnName("TransactieID");
+                entity.Property(e => e.TransactieID)
+                    .HasColumnName("TransactieID");
 
-                entity.Property(e => e.Datum).HasColumnType("datetime");
+                entity.Property(e => e.Datum)
+                    .HasDefaultValue(null)
+                    .HasColumnType("datetime2");
 
                 entity.Property(q => q.Lening)
                     .HasColumnName("Lening")
@@ -177,6 +178,7 @@ namespace CirculaireICTKeten.Models
 
 
                 e.HasKey(e => e.TransactieArtikelID);
+
                 e.Property(q => q.TransactieID)
                     .HasColumnName("TransactieID")
                     .IsRequired();
@@ -194,7 +196,10 @@ namespace CirculaireICTKeten.Models
                 e.Property(q => q.Aantal)
                     .HasColumnName("Aantal")
                     .IsRequired();
-
+                e.Property(q => q.TransactieArtikelID)
+                    .HasColumnName("TransactieArtikelID")
+                    .ValueGeneratedOnAdd()
+                    .IsRequired();
 
 
                 e.HasOne(q => q.Transactie)

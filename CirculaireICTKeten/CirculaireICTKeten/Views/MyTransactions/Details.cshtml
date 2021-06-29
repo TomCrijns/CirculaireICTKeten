@@ -1,0 +1,50 @@
+﻿@model TransactieModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Transaction <span>@Model.TransactieID</span></h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Donatie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Donatie)
+        </dd>
+    </dl>
+    <table class="table table-bordered">
+        <tr>
+            <th>Product</th>
+            <th>Aantal</th>
+            <th>Soort</th>
+            <th>Punten</th>
+            <th>Totaal</th>
+        </tr>
+        @foreach (var product in Model.TransactieArtikelen)
+        {
+            <tr>
+                <th>@product.Artikelen.ArtikelNaam</th>
+                <td>@product.Artikelen</td>
+                <td>@(product.IsVerkoop ? "verkoop" : "inkoop")</td>
+                <td>@product.Punten</td>
+                <td>@(product.IsVerkoop ? '-' : null)@(product.Punten * product.Aantal)</td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <form asp-action="Index" asp-controller="MyTransactions">
+        <button class="btn btn-info">Terug</button>
+    </form>
+</div>

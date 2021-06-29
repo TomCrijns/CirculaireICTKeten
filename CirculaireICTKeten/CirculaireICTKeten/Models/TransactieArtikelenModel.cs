@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -8,7 +9,7 @@ namespace CirculaireICTKeten.Models
 {
     public partial class TransactieArtikelenModel
     {
-        [Key]
+        //[Key]
         public int TransactieArtikelID { get; set; }
         public int TransactieID { get; set; }
         public int ArtikelID { get; set; }
