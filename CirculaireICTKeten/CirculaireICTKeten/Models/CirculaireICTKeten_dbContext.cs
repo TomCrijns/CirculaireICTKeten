@@ -26,6 +26,7 @@ namespace CirculaireICTKeten.Models
         public virtual DbSet<LedenpasLt> LedenpasLts { get; set; }
         public virtual DbSet<ProfileDatum> ProfileData { get; set; }
         public virtual DbSet<Transacty> Transacties { get; set; }
+        public virtual DbSet<Klacht> Klacht { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -221,8 +222,6 @@ namespace CirculaireICTKeten.Models
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
-        public DbSet<CirculaireICTKeten.Models.Klacht> Klacht { get; set; }
 
     }
 }
