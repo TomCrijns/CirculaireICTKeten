@@ -24,6 +24,7 @@ namespace CirculaireICTKeten.Models
         public virtual DbSet<ProfileDataModel> ProfileData { get; set; }
         public virtual DbSet<TransactieModel> Transacties { get; set; }
         public virtual DbSet<TransactieArtikelenModel> TransactieArtikelen { get; set; }
+        public virtual DbSet<Klacht> Klacht { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
