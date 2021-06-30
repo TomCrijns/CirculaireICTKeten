@@ -14,9 +14,9 @@ namespace CirculaireICTKeten.Controllers
     public class ArticlesController : Controller
     {
         private readonly CirculaireICTKeten_dbContext _context;
-        private IHostingEnvironment Environment;
+        private IWebHostEnvironment Environment;
 
-        public ArticlesController(CirculaireICTKeten_dbContext context, IHostingEnvironment _environment)
+        public ArticlesController(CirculaireICTKeten_dbContext context, IWebHostEnvironment _environment)
         {
             _context = context;
             Environment = _environment;
@@ -42,6 +42,9 @@ namespace CirculaireICTKeten.Controllers
                     break;
                 case "points":
                     articles = articles.OrderBy(s => s.ArtikelPunten);
+                    break;
+                case "category":
+                    articles = articles.OrderBy(s => s.ArtikelSoortId);
                     break;
                 default:
                     articles = articles.OrderByDescending(s => s.ArtikelNaam);

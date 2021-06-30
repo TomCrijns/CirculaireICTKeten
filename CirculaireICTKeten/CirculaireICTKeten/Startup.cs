@@ -12,6 +12,7 @@ using CirculaireICTKeten.Models;
 using Microsoft.EntityFrameworkCore;
 using CirculaireICTKeten.Services.EmailService.Configuration;
 using System.Globalization;
+using CirculaireICTKeten.Services;
 
 namespace CirculaireICTKeten
 {
@@ -39,10 +40,15 @@ namespace CirculaireICTKeten
                 options.IdleTimeout = TimeSpan.FromSeconds(10);
                 options.Cookie.IsEssential = true;
             });
+
             services.AddControllersWithViews();
             services.AddDbContext<CirculaireICTKeten_dbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
             services.Configure<SendEmailConfiguration>(Configuration.GetSection("EmailSettings"));
             services.AddRazorPages();
+
+            services.AddHttpContextAccessor();
+
+            services.AddScoped<ITransactionManager, TransactionManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

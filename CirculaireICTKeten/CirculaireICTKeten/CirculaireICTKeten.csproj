@@ -35,7 +35,13 @@
     <None Include="Views\ForgotPassword\ResetPassword.cshtml" />
     <None Include="Views\ForgotPassword\ResetPasswordConfirmation.cshtml" />
     <None Include="Views\Login\Login.cshtml" />
+    <None Include="Views\MyTransactions\Details.cshtml" />
+    <None Include="Views\MyTransactions\Index.cshtml" />
     <None Include="Views\Register\Register.cshtml" />
+    <None Include="Views\Transaction\AddProduct.cshtml" />
+    <None Include="Views\Transaction\Finish.cshtml" />
+    <None Include="Views\Transaction\Index.cshtml" />
+    <None Include="Views\Transaction\List.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<CirculaireICTKeten.Models.ArtikelenModel>
 
-<div class="container p-3">
+<div class="container p-3" style="width: 100%; max-width: 100%;">
     <div class="row pt-4">
         <div class="col-6">
             <h2 class="text-primary">Artikelen</h2>
@@ -45,10 +45,10 @@
                         <td width="20%">@obj.Serienummer</td>
                         <td class="text-center">
                             <div class="w-75 btn-group" role="group">
-                                <a asp-controller="Artikelen" asp-route-Id="@obj.ArtikelId" asp-action="Edit" class="btn btn-primary mx-2">
+                                <a asp-controller="Artikelen" asp-route-Id="@obj.ArtikelID" asp-action="Edit" class="btn btn-primary mx-2">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a asp-controller="Artikelen" asp-route-Id="@obj.ArtikelId" asp-action="Delete" class="btn btn-danger mx-2">
+                                <a asp-controller="Artikelen" asp-route-Id="@obj.ArtikelID" asp-action="Delete" class="btn btn-danger mx-2">
                                     <i class="far fa-trash-alt"></i>
                                 </a>
                             </div>

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 
 namespace CirculaireICTKeten.Controllers
 {
@@ -40,11 +41,11 @@ namespace CirculaireICTKeten.Controllers
                 }
                 else if (authenticated)
                 {
-                        //UserAccount blocked status is false, access granted
-                        HttpContext.Session.SetInt32("UserId", profileData.Id);
-                        HttpContext.Session.SetInt32("AccountType", Int32.Parse(profileData.AccountType.ToString()));
-                        HttpContext.Session.SetString("ProfileName", profileData.Voornaam);
-                        return RedirectToAction("Index", "Home");
+                    //UserAccount blocked status is false, access granted
+                    HttpContext.Session.SetInt32("UserId", profileData.Id);
+                    HttpContext.Session.SetInt32("AccountType", Int32.Parse(profileData.AccountType.ToString()));
+                    HttpContext.Session.SetString("ProfileName", profileData.Voornaam);
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {

@@ -2,49 +2,54 @@
 
 @{
     ViewData["Title"] = "Artikelen catalogus";
+    @section Styles {
+        <link href="@Url.Content("css/ArticleCatalogus.css")" rel="stylesheet" type="text/css" />
+    }
 }
 <div class="artikelenCatalogus">
-<div>
-    <h1>Artikelen catalogus</h1>
+    <div>
+        <h1>Artikelen catalogus</h1>
 
-    <p>
-        <a asp-action="Index" asp-route-sortOrder="name_desc" id="sort-name">Sorteer op naam</a>
-        <a asp-action="Index" asp-route-sortOrder="points" id="sort-point">Sorteer op punten</a>
-        <form asp-action="Index" method="get">
-            <div class="form-actions no-color">
-                <p>
-                    Zoek op naam: <input type="text" name="SearchString" value="@ViewData["searchString"]" />
-                    <input id="searchField" type="submit" value="Zoek" class="btn btn-default" />
-                    @if (ViewData["searchString"] != null)
-                    {
-                        <a asp-action="Index">Terug naar hele lijst</a>
-                    }
-                </p>
-            </div>
-        </form>
-    </p>
-    <div class="grid-container">
-        @foreach (var item in Model)
-        {
-            <div class="grid-item">
-                @{
-                    <!--Check if image exists in the wwwroot/Images folder and display the image.-->
-                    foreach (string filePath in ViewData["filePaths"] as String[])
-                    {
-                        if (filePath.Split("/").Last() == item.ArtikelId + ".jpg")
+        <p>
+            <a asp-action="Index" asp-route-sortOrder="name_desc" id="sort-name">Sorteer op naam</a> |
+            <a asp-action="Index" asp-route-sortOrder="points" id="sort-point">Sorteer op punten</a> |
+            <a asp-action="Index" asp-route-sortOrder="category" id="sort-category">Sorteer op categorie</a>
+            <form asp-action="Index" method="get">
+                <div class="form-actions no-color">
+                    <p>
+                        Zoek op naam: <input type="text" id="searchField" name="SearchString" value="@ViewData["searchString"]" />
+                        <input id="searchButton" type="submit" value="Zoek" class="btn btn-default" />
+                        @if (ViewData["searchString"] != null)
                         {
-                            <img class="" style="max-height: 200px; max-width: 300px;" src='/Images/@(item.ArtikelId + ".jpg")' alt="Afbeelding van item" />
+                            <a asp-action="Index">Terug naar hele lijst</a>
                         }
+                    </p>
+                </div>
+            </form>
+        </p>
+        <div class="grid-container">
+            @foreach (var item in Model)
+            {
+                <div class="grid-item">
+                    @{
+                        <!--Check if image exists in the wwwroot/Images folder and display the image.-->
+                        foreach (string filePath in ViewData["filePaths"] as String[])
+                        {
+                            if (filePath.Split("/").Last() == item.ArtikelID + ".jpg")
+                            {
+                                <img class="articleImage" src='/Images/@(item.ArtikelID + ".jpg")' alt="Afbeelding van item" />
+                            }
+                        }
+
                     }
 
-                }
-
-                <div class="item-content">
-                    @Html.DisplayFor(modelItem => item.ArtikelNaam)<br />
-                    Punten: @Html.DisplayFor(modelItem => item.ArtikelPunten)
+                    <div class="item-content">
+                        @Html.DisplayFor(modelItem => item.ArtikelNaam)<br />
+                        Punten: @Html.DisplayFor(modelItem => item.ArtikelPunten)<br />
+                        Soort: @Html.DisplayFor(modelItem => item.ArtikelSoortId)
+                    </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
-</div>
 </div>
